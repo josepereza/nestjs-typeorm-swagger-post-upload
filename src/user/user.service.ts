@@ -44,6 +44,7 @@ export class UserService {
           id: true,
           title: true,
           content: true,
+          imageUrl: true,
           createdAt: true,
         },
       },
