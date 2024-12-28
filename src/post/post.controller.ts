@@ -26,8 +26,6 @@ interface RequestWithUser extends Request {
 
 @ApiTags('posts')
 @Controller('posts')
-@ApiBearerAuth('access-token') // Debe coincidir con el key en main.ts
-@Controller('posts')
 export class PostController {
   constructor(private readonly postsService: PostService) {}
 
@@ -50,7 +48,7 @@ export class PostController {
     },
   })
   async create(
-    @Body() createPostDto: any,
+    @Body() createPostDto: CreatePostDto,
     @UploadedFile() image: Express.Multer.File,
     @Req() req: RequestWithUser,
   ) {
